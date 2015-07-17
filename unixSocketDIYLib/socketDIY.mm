@@ -1,5 +1,5 @@
 //
-//  socketDIY.cpp
+//  socketCliDIY.cpp
 //  CPP_Primer
 //
 //  Created by cyj on 7/2/15.
@@ -10,7 +10,7 @@
 #include "socketDIY.h"
 #import "graphicGraps.h"
 
-void socketDIY::initSocket(string IP, int port){
+void socketCliDIY::initSocket(string IP, int port){
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     bzero(&servaddr, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
@@ -19,7 +19,7 @@ void socketDIY::initSocket(string IP, int port){
     connect(sockfd, (SA*)&servaddr, sizeof(servaddr));
 }
 
-void socketDIY::sendCharData(unsigned char* data, int len){
+void socketCliDIY::sendCharData(unsigned char* data, int len){
     //writen(sockfd, data, strlen(data));
     
     
@@ -34,11 +34,11 @@ void socketDIY::sendCharData(unsigned char* data, int len){
     }
 }
 
-void socketDIY::unsignedChar2String(unsigned char* input, string &output){
+void socketCliDIY::unsignedChar2String(unsigned char* input, string &output){
     output = reinterpret_cast<char*>(input);
 }
 
-void socketDIY::threadReceiveData(){
+void socketCliDIY::threadReceiveData(){
     char recvline[MAXLINE];
     if(readline(sockfd, recvline, MAXLINE) == 0){
         printf("str_cli: server terminated prematurely");
@@ -59,7 +59,9 @@ void socketSrvDIY::dealWithReceiveData(int sockfd){
             img = img + temp;
         }
         if(n < 0){
-            [[graphicGraps getInstance] charData2Img:(unsigned char*)img.c_str() length:img.length()];
+            NSImage* NSImg = [[graphicGraps getInstance] charData2Img:(unsigned char*)img.c_str() length:img.length()];
+            [[graphicGraps getInstance] drawImageInOriginSize:NSImg];
+            //drawImg(<#string img#>);
             printf("str_echo: read error");
             break;
         }
@@ -87,4 +89,55 @@ void socketSrvDIY::initSocket(int port){
         close(connfd);
     }
 }
+
+////////////////////////////////OCCLI//////////////////////////////
+//
+//@implementation OCSocketCliDIY
+//
+//-(id) init{
+//    if (self = [super init]){
+//        OCClient = new socketCliDIY();
+//    }
+//    return self;
+//}
+//
+//-(void) dealloc{
+//    if(OCClient != NULL){
+//        delete OCClient;
+//        OCClient = NULL;
+//    }
+//}
+//
+//-(void) initSocket:(const char*)IP port:(int)port{
+//    OCClient->initSocket(IP, port);
+//}
+//
+//-(void) sendData:(Byte*)data{
+//    OCClient->sendCharData(data);
+//}
+//@end
+//
+////////////////////////////////OCSRV//////////////////////////////
+//
+//@implementation OCSocketSrvDIY
+//
+//-(id) init{
+//    if(self = [super init]){
+//        OCServer = new socketSrvDIY();
+//    }
+//    return self;
+//}
+//
+//-(void) dealloc{
+//    if(OCServer != NULL){
+//        delete OCServer;
+//        OCServer = NULL;
+//    }
+//}
+//
+//-(void) initSocket:(int)port{
+//    OCServer->initSocket(port);
+//}
+//
+//@end
 

@@ -5,9 +5,11 @@
 #define	__socketDIY__h
 #include <iostream>
 #include <string>
+#include "unp.h"
+
 using namespace std;
 
-class socketDIY{
+class socketCliDIY{
     int sockfd;
     struct sockaddr_in servaddr;
 public:
@@ -32,14 +34,34 @@ public:
     void initSocket(int port);
     
     void dealWithReceiveData(int sockfd);
-    
-    
-    void drawImg(string img);
-//    void sendCharData(unsigned char* data, int len = 0);
-//    
-//    void threadReceiveData();
-//    
-//    void unsignedChar2String(unsigned char* input, string &output);
 };
 
 #endif	/* __unp_h */
+
+//////////////////////////////////////OCSocketCliDIY///////////////////////////////
+//
+//#import <Foundation/Foundation.h>
+//
+//@interface OCSocketCliDIY:NSObject{
+//@private
+//    socketCliDIY* OCClient;
+//}
+//
+//-(void) initSocket:(const char*)IP port:(int)port;
+//-(void) sendData:(Byte*)data;
+//@end
+//
+//////////////////////////////////////OC///////////////////////////////
+//
+//@interface OCSocketSrvDIY:NSObject{
+//@private
+//    socketSrvDIY* OCServer;
+//}
+//
+//-(void) initSocket:(int)port;
+//
+//-(void) dealWithReceiveData:(int)sockfd;
+//@end
+//
+
+

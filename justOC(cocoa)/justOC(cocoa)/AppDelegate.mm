@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "middleControl.h"
+
 #import "graphicGraps.h"
+//#import "unp.h"
 
 @interface AppDelegate ()
 
@@ -21,9 +24,11 @@
     //graphicGraps* g = [[graphicGraps alloc] init];
     //[g capture];
     //[[[graphicGraps alloc] init] capture];
-    NSImage* img = [[graphicGraps getInstance] capture];
+    //NSImage* img = [[graphicGraps getInstance] capture];
+    //[[graphicGraps getInstance] drawImageInOriginSize:img];
     
-    [[graphicGraps getInstance] drawImageInOriginSize:img];
+    OCSocketSrvDIY* srv = [[OCSocketSrvDIY alloc] init];
+    [srv initSocket:SERV_PORT];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25395EC71B53AA3E0042D3CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25395EC61B53AA3E0042D3CF /* AppDelegate.m */; };
+		253228961B58D6830018D9E8 /* middleControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 253228951B58D6830018D9E8 /* middleControl.mm */; };
+		25395EC71B53AA3E0042D3CF /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 25395EC61B53AA3E0042D3CF /* AppDelegate.mm */; };
 		25395EC91B53AA3E0042D3CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 25395EC81B53AA3E0042D3CF /* main.m */; };
 		25395ECB1B53AA3E0042D3CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25395ECA1B53AA3E0042D3CF /* Images.xcassets */; };
 		25395ECE1B53AA3E0042D3CF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25395ECC1B53AA3E0042D3CF /* MainMenu.xib */; };
@@ -28,10 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		253228941B58D6830018D9E8 /* middleControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = middleControl.h; sourceTree = "<group>"; };
+		253228951B58D6830018D9E8 /* middleControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = middleControl.mm; sourceTree = "<group>"; };
 		25395EC01B53AA3E0042D3CF /* justOC(cocoa).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "justOC(cocoa).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25395EC41B53AA3E0042D3CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25395EC51B53AA3E0042D3CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		25395EC61B53AA3E0042D3CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		25395EC61B53AA3E0042D3CF /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		25395EC81B53AA3E0042D3CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		25395ECA1B53AA3E0042D3CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		25395ECD1B53AA3E0042D3CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -89,7 +92,7 @@
 				256BBF681B5899CF00572AFB /* unixSocketDIYLib */,
 				25395EE31B53AA630042D3CF /* graphicGraps */,
 				25395EC51B53AA3E0042D3CF /* AppDelegate.h */,
-				25395EC61B53AA3E0042D3CF /* AppDelegate.m */,
+				25395EC61B53AA3E0042D3CF /* AppDelegate.mm */,
 				25395ECA1B53AA3E0042D3CF /* Images.xcassets */,
 				25395ECC1B53AA3E0042D3CF /* MainMenu.xib */,
 				25395EC31B53AA3E0042D3CF /* Supporting Files */,
@@ -136,6 +139,8 @@
 		256BBF681B5899CF00572AFB /* unixSocketDIYLib */ = {
 			isa = PBXGroup;
 			children = (
+				253228941B58D6830018D9E8 /* middleControl.h */,
+				253228951B58D6830018D9E8 /* middleControl.mm */,
 				256BBF701B58A62900572AFB /* socketDIY.mm */,
 				256BBF711B58A62900572AFB /* socketDIY.h */,
 				256BBF691B5899CF00572AFB /* config.h */,
@@ -246,7 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				25395EC91B53AA3E0042D3CF /* main.m in Sources */,
-				25395EC71B53AA3E0042D3CF /* AppDelegate.m in Sources */,
+				25395EC71B53AA3E0042D3CF /* AppDelegate.mm in Sources */,
+				253228961B58D6830018D9E8 /* middleControl.mm in Sources */,
 				256BBF721B58A62900572AFB /* socketDIY.mm in Sources */,
 				25395EE61B53AA630042D3CF /* graphicGraps.m in Sources */,
 				256BBF6C1B5899CF00572AFB /* unp.cpp in Sources */,
