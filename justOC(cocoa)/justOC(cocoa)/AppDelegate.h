@@ -7,9 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "middleControl.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 
 @end
 
+OCSocketCliDIY* client;

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "middleControl.h"
+
 
 #import "graphicGraps.h"
 //#import "unp.h"
@@ -27,8 +27,12 @@
     //NSImage* img = [[graphicGraps getInstance] capture];
     //[[graphicGraps getInstance] drawImageInOriginSize:img];
     
-    OCSocketSrvDIY* srv = [[OCSocketSrvDIY alloc] init];
-    [srv initSocket:SERV_PORT];
+    //OCSocketSrvDIY* srv = [[OCSocketSrvDIY alloc] init];
+    //[srv initSocket:SERV_PORT];
+    
+    client = [[OCSocketCliDIY alloc] init];
+    [client initSocket:"192.168.1.75" port:SERV_PORT];
+    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -42,10 +46,14 @@
     //NSWindow *window = [self.box window];
     //[window frame].size.height;
     
-    NSImage* img = [[graphicGraps getInstance] capture];
-    [[graphicGraps getInstance] drawImage:img drawRect:[self.window frame]];
+//    NSImage* img = [[graphicGraps getInstance] capture];
+//    [[graphicGraps getInstance] drawImage:img drawRect:[self.window frame]];
     //[self.window getFrame].size;
     //NSLog(@"coming");
+    
+    NSImage* img = [[graphicGraps getInstance] capture];
+    Byte* imgData = [[graphicGraps getInstance] img2binaryData:img];
+    [client sendData:imgData];
 }
 
 - (void)applicationDidUpdate:(NSNotification *)notification{
